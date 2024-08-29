@@ -1,0 +1,135 @@
+h1 {
+    padding-left: 32px;
+    font-family: 'Verdana', sans-serif;
+    font-size: 72px;
+    font-weight: 500;
+    color: yellow;
+    text-shadow: 2px 2px 0 #0e41f8, -2px -2px 0 #0e41f8, 2px -2px 0 #0e41f8, -2px 2px 0 #0e41f8;
+    letter-spacing: 5px;
+}
+
+header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+input {
+    width: 50vw;
+    height: 32px;
+    border-radius: 8px 8px 8px 8px;
+}
+
+.content {
+    width: 200px;
+    height: 300px;
+    border: solid black 2px;
+    border-radius: 8px;
+}
+
+.content:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px grey;
+}
+
+.content img {
+    width: 150px;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+}
+
+.speciesIcon {
+    width: 32px !important;
+}
+
+.d-none {
+    display: none !important;
+}
+
+.pokemonCard {
+    width: 100%;
+    height: 100%;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.show-card {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inner-card {
+    height: 40%;
+    width: 30%;
+    background-color: white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+table {
+    width: 250px;
+    text-align: center;
+
+}
+
+.stat-bar {
+    padding-bottom: 24px;
+    display: flex;
+    justify-content: center !important;
+}
+
+.current-pokemon-img {
+    width: 200px;
+}
+
+.stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    color: white;
+    margin-top: 16px;
+}
+
+.change-button img {
+    width: 32px;
+
+}
+
+.close-button {
+    background-color: black;
+    color: white;
+}
