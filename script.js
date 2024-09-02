@@ -6,10 +6,9 @@ let pokemonSpecies = [];
 
 async function init() {
     await getPokemonData();
+    hideLoadingScreen();
     renderContent();
 }
-
-
 
 async function getPokemonData() {
     let pokemon = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150&offset=0");
@@ -23,7 +22,6 @@ async function getPokemonData() {
         pokemonData.push(allData);
         getSpecies(i);
         getImages(i);
-
     }
 }
 
@@ -39,14 +37,7 @@ function renderContent() {
 
         let currentSpecies = pokemonSpecies[i];
 
-        content.innerHTML += `
-        <div onclick="showData(${i})" class="content" id="content${i}">
-            <div class="pokemonCard" id="card${i}">
-                <h2>${finalPokemonName}</h2>
-                <img src="${pokemonImages[i]}">
-            </div>
-        </div>
-        `;
+        content.innerHTML += renderContentHtml(i, finalPokemonName);
         showSpecies(i, currentSpecies)
     }
 }
@@ -56,6 +47,7 @@ function showData(i) {
     showCard.innerHTML = '';
     showCard.classList.remove('d-none');
     showCard.innerHTML += showDataHtml(i);
+    currentCardBg(i);
 }
 
 function showAbilities(i) {
@@ -82,36 +74,14 @@ function showAbilities(i) {
 
 function showStats(i) {
     let table = document.getElementById('table1');
-    table.innerHTML = `
-        <tr>
-            <td>Attack</td>
-            <td>Defense</td>
-            <td>Health</td>
-        </tr>
-        <tr>
-            <td>${pokemonData[i].stats[1].base_stat}</td>
-            <td>${pokemonData[i].stats[2].base_stat}</td>
-            <td>${pokemonData[i].stats[0].base_stat}</td>
-        </tr>
-    `;
+    table.innerHTML = showStatsHtml(i);
 
 }
 
 function showPhysique(i) {
     let table = document.getElementById('table1');
     table.innerHTML = '';
-    table.innerHTML = `
-        <tr>
-            <td>Height</td>
-            <td>Base Experience</td>
-            <td>Weight</td>
-        </tr>
-        <tr>
-            <td>${pokemonData[i].height}</td>
-            <td>${pokemonData[i].base_experience}</td>
-            <td>${pokemonData[i].weight}</td>
-        </tr>
-    `;
+    table.innerHTML = showPhysiqueHtml(i);
 }
 
 function closeCard() {
@@ -137,3 +107,21 @@ function previousCard(i) {
         closeCard();
     }
 }
+
+function searchPokemon() {
+    for (let i = 0; i < allPokemon.length; i++) {
+        const element = allPokemon[i];
+        
+    let input = document.getElementById('input').value;
+    let pokemonName = element.search(input);
+    console.log(pokemonName)
+    }
+}
+
+function hideLoadingScreen() {
+    let loadingScreen = document.getElementById('loadingScreen');
+    let showMain = document.getElementById('showMain');
+    loadingScreen.classList.add('d-none');
+    showMain.classList.remove('d-none');
+}
+

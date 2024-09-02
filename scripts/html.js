@@ -37,3 +37,44 @@ function showDataHtml(i) {
         </div>
         `
 }
+
+function showPhysiqueHtml(i) {
+    return `
+            <tr>
+                <td>Height</td>
+                <td>Base Experience</td>
+                <td>Weight</td>
+            </tr>
+            <tr>
+                <td>${pokemonData[i].height}</td>
+                <td>${pokemonData[i].base_experience}</td>
+                <td>${pokemonData[i].weight}</td>
+            </tr>
+        `
+}
+
+function showStatsHtml(i) {
+    return `
+            <tr>
+                <td>Attack</td>
+                <td>Defense</td>
+                <td>Health</td>
+            </tr>
+            <tr>
+                <td>${pokemonData[i].stats[1].base_stat}</td>
+                <td>${pokemonData[i].stats[2].base_stat}</td>
+             <td>${pokemonData[i].stats[0].base_stat}</td>
+            </tr>
+        `
+}
+
+function renderContentHtml(i, finalPokemonName) {
+    return  `
+            <div onclick="showData(${i})" class="content" id="content${i}">
+                <div class="pokemonCard" id="card${i}">
+                    <h2>${finalPokemonName}</h2>
+                    <img class="allPokemonImages" src="${pokemonImages[i]}">
+                </div>
+            </div>
+            ` 
+}

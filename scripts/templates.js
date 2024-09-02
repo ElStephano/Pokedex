@@ -59,11 +59,13 @@ function showSpecies(i, currentSpecies){
             bgContent.innerHTML += `<img src="./img/ice.png" class="speciesIcon">`;
             break;
         case "dragon":
-            content.style.backgroundColor = "#EE9C39 !Important";
+            content.style.backgroundColor = "#EE9C39";
             bgContent.innerHTML += `<img src="./img/dragon.png" class="speciesIcon">`;
+            break;
         case "fairy":
             content.style.backgroundColor = "#FFACA4";
             bgContent.innerHTML += `<img src="./img/fairy.png" class="speciesIcon">`;
+            break;
     }
 }
 
@@ -75,4 +77,40 @@ function getImages(i) {
 function getSpecies(i) {
     let names = pokemonData[i].types[0].type.name;
     pokemonSpecies.push(names);
+}
+
+function currentCardBg(i) {
+    let currentCard = document.getElementById(`pokemonCardBg${i}`);
+    currentPokemon = pokemonSpecies[i];
+    if(currentPokemon == "grass") {
+        currentCard.classList.add("grass");
+    } else if (currentPokemon == "bug"){
+        currentCard.classList.add("bug");
+    } else if (currentPokemon == "fire"){
+        currentCard.classList.add("fire");
+    } else if (currentPokemon == "water"){
+        currentCard.classList.add("water");
+    } else if (currentPokemon == "normal"){
+        currentCard.classList.add("normal");
+    } else if (currentPokemon == "poison"){
+        currentCard.classList.add("poison");
+    } else if (currentPokemon == "electric"){
+        currentCard.classList.add("electric");
+    } else if (currentPokemon == "ground"){
+        currentCard.classList.add("ground");
+    } else if (currentPokemon == "fighting"){
+        currentCard.classList.add("fighting");
+    } else if (currentPokemon == "rock"){
+        currentCard.classList.add("rock");
+    } else if (currentPokemon == "ghost"){
+        currentCard.classList.add("ghost");
+    } else if (currentPokemon == "psychic"){
+        currentCard.classList.add("psychic");
+    } else if (currentPokemon == "ice"){
+        currentCard.classList.add("ice");
+    } else if (currentPokemon == "dragon"){
+        currentCard.classList.add("dragon");
+    } else if (currentPokemon == "fairy"){
+        currentCard.classList.add("fairy");
+    }
 }
